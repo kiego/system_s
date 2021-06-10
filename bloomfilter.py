@@ -11,7 +11,7 @@ def bloomfilter(keys):
         sha512 = int(hashlib.sha512(key_value).hexdigest(),16) % 64
         bfindex[md5] = 1
         bfindex[sha256] = 1
-        bfindex[sha512] = 12
+        bfindex[sha512] = 1
 
     return bfindex
 
