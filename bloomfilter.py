@@ -2,12 +2,11 @@ import hashlib
 import glob
 
 
-
 def hash_value(keys, bfindex, flag):
     for key_value in keys:
-        md5 = int(hashlib.md5(key_value).hexdigest(),16) % 64
-        sha256 = int(hashlib.sha256(key_value).hexdigest(),16)% 64
-        sha512 = int(hashlib.sha512(key_value).hexdigest(),16) % 64
+        md5 = int(hashlib.md5(key_value).hexdigest(), 16) % 64
+        sha256 = int(hashlib.sha256(key_value).hexdigest(), 16)% 64
+        sha512 = int(hashlib.sha512(key_value).hexdigest(), 16) % 64
         
         if flag:
             bfindex[md5] = 1
@@ -27,11 +26,13 @@ def check_file_count():
     # else:
     #     print("ファイル数が規定に達していません")
 
+
 def input_value(file_path):
     for num in file_path:
-        with open(num,'rb') as f:
+        with open(num, 'rb') as f:
             file_data.append(f.read())
         return file_data
+
 
 def search(md5,sha256,sha512):
     keyword_value = [md5,sha256,sha512]
@@ -64,5 +65,3 @@ if __name__ == "__main__":
     flag = False
     hash_value(keyword, bfindex, flag)
 
-
-    
